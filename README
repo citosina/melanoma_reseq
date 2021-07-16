@@ -1,0 +1,21 @@
+
+
+
+
+################################################################################################################################
+# Fine-mapping of cutaneous melanoma-associated genomic regions identifies novel causal SNPs in the MTAP/CDKN2A and CASP8 loci #
+# Methods
+################################################################################################################################
+
+### Variant Calling  ####
+ For each aligned file, the GATK v4.1.0.0 HaplotypeCaller (McKenna et al., 2010) was run to create a genomic variant call format (gVCF) file. Joint variant calling was performed over all samples, creating a genomics database, which is a requirement for the GATK workflow. The genomics database was then read and a variant call format (VCF) file was created for each region. These steps were all performed using the GATK v4.1.0.0 suite (McKenna et al., 2010). Then, all VCF files were concatenated using bcftools concat v1.9(Li, 2011), into one VCF file containing 40,837 variants.
+
+### Quality Control ###
+
+File name: 'avgGQ.py' 
+Description: Calculates the average GQ, filters out sites with average GQ < 30. Output: files for each batch for each phenotype with bed cordinates of the sites with average GQ > 30 
+
+File name: 'filter1.py'
+Description: script that ouputs a list of variants common among batches after the avgGQ, HWE and missingness filters.
+
+
